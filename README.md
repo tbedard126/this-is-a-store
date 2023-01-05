@@ -18,7 +18,7 @@ Video Link:
 [video](https://drive.google.com/file/d/1hrYq4C3PFj8Db4RU_kCxzafFPXN5F-lM/view)
 
 
-![](Assets\ecommerce-insomnia.png)
+![](Assets/ecommerce-insomnia.png)
 
 ## Installation:
 To install this project, gitclone onto your local machine. Once that is done cd into the file and open up the terminal in the root of the file. From there you can type npm i and hit enter, this will install all of your dependancies needed to run this. Once that is done, log into MYSQL via the terminal using the command mysql -uroot, or if you have a password mysql -uroot -p. This will connect you to the database. Then type source db/schema.sql to build your tables. After that type exit and get back to the root of your project. Then in the terminal again in the root, type npm seed and that will seed all of the data into your database. After that type npm start and the application should start running on your machine. You also may have to change the data inside of the .env file to your credentials for MYSQL.
