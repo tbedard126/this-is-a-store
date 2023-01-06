@@ -4,11 +4,11 @@ const { Product, Category, Tag, ProductTag } = require('../../models');
 // The `/api/products` endpoint
 
 // get all products
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
   // find all products
   // be sure to include its associated Category and Tag data
   try {
-    Product.findAll({
+    await Product.findAll({
       attributes: ['id', 'product_name', 'stock'],
       include: [
         {
@@ -31,11 +31,11 @@ router.get('/', (req, res) => {
 });
 
 // get one product
-router.get('/:id', (req, res) => {
+router.get('/:id', async (req, res) => {
   // find a single product by its `id`
   // be sure to include its associated Category and Tag data
   try {
-    Product.findOne({
+   await Product.findOne({
       where: {
         id: req.params.id
       },
@@ -65,9 +65,9 @@ router.get('/:id', (req, res) => {
 });
 
 // create new product
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
   try {
-    Product.create({
+   await Product.create({
       product_name: req.body.product_name,
       price: req.body.price,
       stock: req.body.stock,
@@ -98,10 +98,10 @@ router.post('/', (req, res) => {
 
 
 // update product
-router.put('/:id', (req, res) => {
+router.put('/:id', async (req, res) => {
   // update product data
   try {
-    Product.update(req.body, {
+   await Product.update(req.body, {
       where: {
         id: req.params.id,
       },
@@ -144,10 +144,10 @@ router.put('/:id', (req, res) => {
 
 
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', async (req, res) => {
   // delete one product by its `id` value
   try {
-    Product.destroy({
+     await Product.destroy({
       where: {
         id: req.params.id
       }
